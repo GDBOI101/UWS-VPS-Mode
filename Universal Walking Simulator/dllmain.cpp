@@ -499,6 +499,8 @@ DWORD WINAPI Main(LPVOID)
         }
     }
 
+    CreateThread(0, 0, AircraftStartThread, 0, 0, 0);
+
     return 0;
 }
 

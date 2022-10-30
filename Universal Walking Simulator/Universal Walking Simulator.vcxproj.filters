@@ -139,5 +139,8 @@
     <ClInclude Include="Gameplay\carmine.h">
       <Filter>Header Files\Gameplay</Filter>
     </ClInclude>
+    <ClInclude Include="VPS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
