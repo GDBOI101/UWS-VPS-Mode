@@ -3356,6 +3356,7 @@ DWORD AircraftStartThread(LPVOID) {
 	{
 		if (bWantsToRestart) {
 			bWantsToRestart = false;
+			HasStartedAC = false;
 			Sleep(5000);
 			Restart();
 		}
