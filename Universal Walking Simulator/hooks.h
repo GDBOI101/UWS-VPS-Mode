@@ -3376,10 +3376,26 @@ DWORD AircraftStartThread(LPVOID) {
 							HasStartedAC = true;
 							//Start the Bus
 							Helper::SetGamePhase(EAthenaGamePhase::Warmup);
-							FString StartAircraftCmd;
-							StartAircraftCmd.Set(L"startaircraft");
 
-							Helper::Console::ExecuteConsoleCommand(StartAircraftCmd);
+							auto AircraftStartTime = Helper::GetGameState()->Member<float>(("AircraftStartTime"));
+
+							if (AircraftStartTime)
+							{
+								auto WillSkipAircraft = Helper::GetGameState()->Member<bool>(("bGameModeWillSkipAircraft"));
+
+								if (WillSkipAircraft)
+									*WillSkipAircraft = true;
+
+								*AircraftStartTime = 0;
+								*Helper::GetGameState()->Member<float>(("WarmupCountdownEndTime")) = 0;
+							}
+							else
+							{
+								FString StartAircraftCmd;
+								StartAircraftCmd.Set(L"startaircraft");
+
+								Helper::Console::ExecuteConsoleCommand(StartAircraftCmd);
+							}
 						}
 						if (PlayerCount < VPS::MinPlayers) {
 							break;
