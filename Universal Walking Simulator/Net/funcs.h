@@ -462,7 +462,7 @@ static bool bAutoRestart = false;
 static int RestartSeconds = 10; // give them time to get slomo n stuff
 static bool bSiphonEnabled = false;
 static int maxAmountOfPlayersPerTeam = 1; // >S2
-static bool bRandomCosmetics = true;
+static bool bRandomCosmetics = false;
 
 static std::string CIDToUse = "None";
 

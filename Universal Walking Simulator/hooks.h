@@ -2371,7 +2371,13 @@ inline bool AircraftExitedDropZoneHook(UObject* GameMode, UFunction* Function, v
 }
 
 inline bool ServerChoosePartHook(UObject* Pawn, UFunction* Function, void* Parameters)
-{
+{ 
+	return true;
+
+
+
+
+
 	struct SCP_Params {
 		TEnumAsByte<EFortCustomPartType> Part;
 		UObject* ChosenCharacterPart;

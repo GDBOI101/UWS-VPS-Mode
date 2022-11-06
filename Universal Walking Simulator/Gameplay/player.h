@@ -17,6 +17,8 @@ namespace Player
 
 		auto NewPawn = Helper::InitPawn(PlayerController, false, PawnLocation);
 
+		
+
 		if (!NewPawn)
 			return;
 
