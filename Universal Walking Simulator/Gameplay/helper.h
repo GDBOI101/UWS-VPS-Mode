@@ -2242,26 +2242,22 @@ namespace Helper
 	}
 
 	UObject* GetRandomPickaxe()
-		{
-		//	static auto PIDClass = FindObject("Class /Script/FortniteGame.AthenaPickaxeItemDefinition");
+	{
+		static auto PIDClass = FindObject("Class /Script/FortniteGame.AthenaPickaxeItemDefinition");
 
-		//	auto AllObjects = Helper::GetAllObjectsOfClass(PIDClass);
+		auto AllObjects = Helper::GetAllObjectsOfClass(PIDClass);
 
-		//	auto random = rand() % (AllObjects.size());
-		//	random = random <= 0 ? 1 : random;
+		auto random = rand() % (AllObjects.size());
+		random = random <= 0 ? 1 : random;
 
-		//	auto pick = AllObjects.at(random);
-		//	static auto WeaponDefinitionOffset = GetOffset(pick, "WeaponDefinition");
+		auto pick = AllObjects.at(random);
+		static auto WeaponDefinitionOffset = GetOffset(pick, "WeaponDefinition");
 
-		//	auto Pickaxe = *(UObject**)(__int64(pick) + WeaponDefinitionOffset);
+		auto Pickaxe = *(UObject**)(__int64(pick) + WeaponDefinitionOffset);
 
-		//	// std::cout << "Pcikaxe: " << Pickaxe->GetFullName() << '\n';
+		// std::cout << "Pcikaxe: " << Pickaxe->GetFullName() << '\n';
 
-		//	return Pickaxe;
-
-
-		return FindObject("FortWeaponMeleeItemDefinition /Game/Items/Weapons/Melee/Harvest/WID_Harvest_Pickaxe_C_T01.WID_Harvest_Pickaxe_C_T01");
-
+		return Pickaxe;
 	}
 
 	static UObject* GetPickaxeDef(UObject* Controller, bool bGetNew = false)
@@ -2354,18 +2350,10 @@ namespace Helper
 
 			if (headPart && bodyPart)
 			{
-				auto CharacterParts = PlayerState->Member<TArray<UObject*>>("CharacterParts");
-
-				CharacterParts->operator[](0) = bodyPart;
-				CharacterParts->operator[](1) = headPart;
-				CharacterParts->operator[](2) = hatPart;
-				CharacterParts->operator[](3) = backpackPart;
-				
-
-				/*Helper::ChoosePart(Pawn, EFortCustomPartType::Head, headPart);
+				Helper::ChoosePart(Pawn, EFortCustomPartType::Head, headPart);
 				Helper::ChoosePart(Pawn, EFortCustomPartType::Body, bodyPart);
 				Helper::ChoosePart(Pawn, EFortCustomPartType::Hat, hatPart);
-				Helper::ChoosePart(Pawn, EFortCustomPartType::Backpack, backpackPart);*/
+				Helper::ChoosePart(Pawn, EFortCustomPartType::Backpack, backpackPart);
 			}
 			else
 				std::cout << ("Unable to find Head and Body!\n");
