@@ -1,2 +1,2 @@
 # UWS-Revamp
-UWS revamped for VPS Usage (Made by GD)
+UWS revamped for VPS Usage (Made by GD and Spring)
